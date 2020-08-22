@@ -18,16 +18,19 @@ const business = {
 
 const businesses = [business, business, business, business, business, business]; // our goal is to remove the repetition of components inside of the <BusinessList />
 
+class App extends React.Component {
+  searchYelp(term, location, sortBy) {
+console.log(`Searching ${term}, ${location}, ${sortBy}`);
+  };
 
-
-function App() {
-  return (
-    <div className="App">
-  <h1>ravenous</h1>
-  <SearchBar />
-  <BusinessList business={businesses}/>
-</div>
-  );
+  render() {
+    return <div className="App">
+            <h1>ravenous</h1>
+            <SearchBar searchYelp={this.searchYelp}  />
+            <BusinessList business={businesses}/>
+            </div>
+  };
 }
+
 
 export default App;
